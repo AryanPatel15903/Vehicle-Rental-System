@@ -1,0 +1,88 @@
+/* Overall form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;;
+    padding: 20px;
+    background-color: #0f0f0f;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+  
+  /* Label styles */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  /* Input field styles */
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid hsl(0, 0%, 10%); /* Adjust border color for contrast */
+    border-radius: 2px;
+    background-color: hsl(0, 0%, 14%); /* Slightly darker background */
+    color: #fff; /* Light text color */
+    font-size: 16px;
+  }
+  
+  textarea {
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  
+  /* Select element styles */
+  select {
+    background-color: hsl(0, 0%, 14%);
+    margin-bottom: 15px;
+  }
+  
+  /* Submit button styles */
+  button[type="submit"] {
+    background-color: #F77D0A; /* Orange button color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #F8891C; /* Darker orange */
+  }
+  
+  /* Focus states (optional) */
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none; /* Remove default outline */
+    border-color: #7d9fa8; /* Highlight color */
+  }
+  
+  /* Placeholder text styles (optional) */
+  ::-webkit-input-placeholder { /* Chrome, Safari, Edge */
+    color: #999;
+  }
+  
+  :-moz-placeholder { /* Firefox */
+    color: #999;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer */
+    color: #999;
+  }
+  
+  ::placeholder { /* Modern browsers */
+    color: #999;
+  }
+  
