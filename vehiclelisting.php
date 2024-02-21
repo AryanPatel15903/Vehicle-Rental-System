@@ -136,12 +136,12 @@
         </div>
 
         <div>
-            <label for="puc">PUC (PDF):</label>
+            <label for="puc">PUC (PDF):</label><br>
             <input type="file" id="puc" name="puc">
         </div>
 
         <div>
-            <label for="insurance">Insurance (PDF):</label>
+            <label for="insurance">Insurance (PDF):</label><br>
             <input type="file" id="insurance" name="insurance">
         </div>
 
