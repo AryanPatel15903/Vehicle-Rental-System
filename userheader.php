@@ -64,7 +64,7 @@
     <!-- Topbar End -->
 
     <?php
-         require_once('connection.php');
+        require_once('connection.php');
         $sql="SELECT * from tbluser";
         $query=mysqli_query($con,$sql);
         $result=mysqli_fetch_assoc($query);

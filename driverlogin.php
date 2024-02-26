@@ -54,7 +54,7 @@ require_once('connection.php');
         </div>
     </div>
     <!-- Page Header End -->
-
+<div class="formbody">
     <div class="form">
         <h2>Driver login</h2>
             <form method="POST"> 
@@ -66,6 +66,8 @@ require_once('connection.php');
         <a href="registerdriver.php">Sign up</a> here</a></p>
                 
     </div>
+</div>
+    
  
     <!-- footer start -->
     <?php include('footer.php');?>

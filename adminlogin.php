@@ -54,7 +54,7 @@ require_once('connection.php');
         </div>
     </div>
     <!-- Page Header End -->
-
+<div class="formbody">
     <div class="form">
         <h2>Admin Login</h2>
             <form method="POST"> 
@@ -64,6 +64,8 @@ require_once('connection.php');
             </form>
                 
     </div>
+</div>
+    
  
     <!-- footer start -->
     <?php include('footer.php');?>

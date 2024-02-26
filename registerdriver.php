@@ -75,82 +75,85 @@ if(isset($_POST['regdriver']) && (isset($_FILES["image"])))
     <!-- Page Header End -->
 
     <!-- form start -->
-    <div class="register">
-        <h2>Register Here</h2>
-        <table>
-        <form id="register" action="registerdriver.php" method="POST" enctype="multipart/form-data">    
-            <tr>
-                <td><label>First Name : </label></td>
-                <td>
-                    <input type ="text" name="fname"
-                    id="name" placeholder="Enter Your First Name" required>
-                </td>
-            </tr>
-                    
+    <div class="formbody">
+        <div class="register">
+            <h2>Register Here</h2>
+            <table>
+            <form id="register" action="registerdriver.php" method="POST" enctype="multipart/form-data">    
+                <tr>
+                    <td><label>First Name : </label></td>
+                    <td>
+                        <input type ="text" name="fname"
+                        id="name" placeholder="Enter Your First Name" required>
+                    </td>
+                </tr>
+                        
 
-            <tr>
-                <td><label>Last Name : </label></td>
-                <td>
-                    <input type ="text" name="lname"
-                    id="name" placeholder="Enter Your Last Name" required>
-                </td>
-            </tr>
+                <tr>
+                    <td><label>Last Name : </label></td>
+                    <td>
+                        <input type ="text" name="lname"
+                        id="name" placeholder="Enter Your Last Name" required>
+                    </td>
+                </tr>
 
-            <tr>
-                <td><label>Email : </label></td>
-                <td>
-                    <input type="email" name="email"
-                    id="name" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="ex: example@ex.com"placeholder="Enter Valid Email" required>
-                </td>
-            </tr>       
+                <tr>
+                    <td><label>Email : </label></td>
+                    <td>
+                        <input type="email" name="email"
+                        id="name" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="ex: example@ex.com"placeholder="Enter Valid Email" required>
+                    </td>
+                </tr>       
 
-            <tr>
-                <td><label>Phone Number : </label></td>
-                <td>
-                    <input type="tel" name="ph" maxlength="10" onkeypress="return onlyNumberKey(event)"
-                    id="name" placeholder="Enter Your Phone Number" required>
-                </td>
-            </tr>
+                <tr>
+                    <td><label>Phone Number : </label></td>
+                    <td>
+                        <input type="tel" name="ph" maxlength="10" onkeypress="return onlyNumberKey(event)"
+                        id="name" placeholder="Enter Your Phone Number" required>
+                    </td>
+                </tr>
 
-            <tr>
-                <td><label>Lisence Number : </label></td>
-                <td>
-                    <input type="text" name="lno"
-                    id="name" placeholder="Enter Your Lisence Number" required>
-                </td>
-            </tr>
+                <tr>
+                    <td><label>Lisence Number : </label></td>
+                    <td>
+                        <input type="text" name="lno"
+                        id="name" placeholder="Enter Your Lisence Number" required>
+                    </td>
+                </tr>
 
-            <tr>
-                <td><label>Lisence card : </label></td>
-                <td>
-                    <input type="file" name="image">
-                </td>
-            </tr>
+                <tr>
+                    <td><label>Lisence card : </label></td>
+                    <td>
+                        <input type="file" name="image">
+                    </td>
+                </tr>
 
-            <tr>
-                <td><label>Password : </label></td>
-                <td>
-                    <input type="password" name="pass" maxlength="12"
-                    id="psw" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                </td>
-            </tr>
+                <tr>
+                    <td><label>Password : </label></td>
+                    <td>
+                        <input type="password" name="pass" maxlength="12"
+                        id="psw" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    </td>
+                </tr>
 
-            <tr>
-                <td><label>Confirm Password : </label></td>
-                <td>
-                    <input type="password" name="cpass" 
-                    id="cpsw" placeholder="Renter the password" required>
-                </td>
-            </tr>
-            <br>
-            </table>
-                <input type="submit" class="btnn"  value="Register" name="regdriver" >
+                <tr>
+                    <td><label>Confirm Password : </label></td>
+                    <td>
+                        <input type="password" name="cpass" 
+                        id="cpsw" placeholder="Renter the password" required>
+                    </td>
+                </tr>
+                <br>
+                </table>
+                    <input type="submit" class="btnn"  value="Register" name="regdriver" >
 
-        </input>
-            
-        </form>
+            </input>
+                
+            </form>
 
-    </div> 
+        </div>
+    </div>
+     
     <!-- form end -->
  
     <!-- footer start -->
