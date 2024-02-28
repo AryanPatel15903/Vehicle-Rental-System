@@ -17,6 +17,7 @@ require_once('connection.php');
         else{
             $query="select *from tbluser where EMAIL='$email'";
             $res=mysqli_query($con,$query);
+
             if($row=mysqli_fetch_assoc($res)){
                 $db_password = $row['Password'];
                 if(md5($pass)  == $db_password)

@@ -65,7 +65,9 @@
 
     <?php
         require_once('connection.php');
-        $sql="SELECT * from tbluser";
+        session_start();
+        $email = $_SESSION['email'];
+        $sql="SELECT * from tbluser where Email='$email'";
         $query=mysqli_query($con,$sql);
         $result=mysqli_fetch_assoc($query);
     ?>
@@ -116,7 +118,7 @@
                                     <img src="img/profile.png" alt="">
                                     <p><?php echo $result['Email'] ?></p>
                                 </a>
-                                <a href="login.php" class="sub-menu-links">
+                                <a href="logout.php" class="sub-menu-links">
                                     <img src="img/logout.png" alt="">
                                     <p>logout</p>
                                     <span>></span>
