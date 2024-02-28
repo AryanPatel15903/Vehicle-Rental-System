@@ -63,6 +63,18 @@
     </div>
     <!-- Topbar End -->
 
+    <?php
+        require_once('connection.php');
+        session_start();
+
+        if (!isset($_SESSION['name'])) {
+            // echo '<script>alert("Already Logged Out!!")</script>';
+            header("Location: login.php");
+            exit();
+        }
+
+        $name = $_SESSION['name'];
+    ?>
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
@@ -94,22 +106,21 @@
                         </div>
 
                         <div class="hero">
-            <img src="img/user.png" class="user-pic" alt="" onclick="toggleMenu()">
+                        <img src="img/user.png" class="user-pic" alt="" onclick="toggleMenu()">
                         <div class="sub-menu-wrap" id="submenu">
                             <div class="sub-menu">
                                 <div class="uer-info">
                                     <img src="img/user.png" alt="sdv" >
                                     <h3>
-                                        ADMIN
+                                        <?php echo $name ?>
                                     </h3>
                                 </div>
                                 <hr>
                                 <a href="#" class="sub-menu-links">
                                     <img src="img/profile.png" alt="">
                                     <p>Admin@gmail.com</p>
-                                    <span>></span>
                                 </a>
-                                <a href="adminlogin.php" class="sub-menu-links">
+                                <a href="logout.php" class="sub-menu-links">
                                     <img src="img/logout.png" alt="">
                                     <p>logout</p>
                                     <span>></span>
