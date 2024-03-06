@@ -92,13 +92,13 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="userindex.php" class="nav-item nav-link active">Home</a>
-                        <a href="about.php" class="nav-item nav-link">About</a>
+                        <a href="useraboutus.php" class="nav-item nav-link">About</a>
                         <a href="#" class="nav-item nav-link">Service</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vehicles</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="vehicledetail.php" class="dropdown-item">Vehicle Detail</a>
-                                <a href="#" class="dropdown-item">Vehicle Booking</a>
+                                <a href="uservehicledetail.php" class="dropdown-item">Vehicle Detail</a>
+                                <a href="userbooking.php" class="dropdown-item">Vehicle Booking</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
