@@ -100,7 +100,6 @@
                                 <div class="uer-info">
                                     <img src="img/user.png" alt="sdv" >
                                     <h3>
-                                        <!-- <?php echo $name ?> -->
                                         <p>ADMIN</p>
                                     </h3>
                                 </div>
