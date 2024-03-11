@@ -63,18 +63,6 @@
     </div>
     <!-- Topbar End -->
 
-    <?php
-        require_once('connection.php');
-        session_start();
-
-        if (!isset($_SESSION['name'])) {
-            // echo '<script>alert("Already Logged Out!!")</script>';
-            header("Location: login.php");
-            exit();
-        }
-
-        $name = $_SESSION['name'];
-    ?>
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
@@ -112,7 +100,8 @@
                                 <div class="uer-info">
                                     <img src="img/user.png" alt="sdv" >
                                     <h3>
-                                        <?php echo $name ?>
+                                        <!-- <?php echo $name ?> -->
+                                        <p>ADMIN</p>
                                     </h3>
                                 </div>
                                 <hr>

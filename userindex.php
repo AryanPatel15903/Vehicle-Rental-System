@@ -41,7 +41,7 @@
                         <div class="text-left">
                             <h3 class="text-uppercase text-light mb-3">Looking for a vehicle?</h3>
                             <p class="mb-4">Our simple and user-friendly system makes booking a breeze</p>
-                            <a class="btn btn-primary py-2 px-4" href="#">Book Now</a>
+                            <a class="btn btn-primary py-2 px-4" href="userbooking.php">Book Now</a>
                         </div>
                         <img class="img-fluid flex-shrink-0 mr-n5 w-50 ml-4" src="img/banner-right.png" alt="">
                     </div>
