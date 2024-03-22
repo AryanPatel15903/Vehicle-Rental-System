@@ -20,6 +20,7 @@ if(isset($_POST['regdriver']) && (isset($_FILES["image"])))
       $ph = $_POST["ph"];
       $lno = $_POST["lno"];
       $image = $_FILES["image"]["name"]; // Get the filename of the uploaded file
+      $driverimg = $_FILES["driverimg"]["name"]; // Get the filename of the uploaded file
       $pass = $_POST["pass"];
       $cpass = $_POST["cpass"];
       $Pass=md5($pass);
@@ -40,11 +41,18 @@ if(isset($_POST['regdriver']) && (isset($_FILES["image"])))
 
         $tmpfile=$_FILES['image']['tmp_name'];
         $target="Lisence_img";
+
+        $tmpfile1=$_FILES['driverimg']['tmp_name'];
+        $target1="Profile_img";
     
           $filename="$target/$image";
           move_uploaded_file($tmpfile,"$filename");
+          
+          $filename1="$target1/$driverimg";
+          move_uploaded_file($tmpfile1,"$filename1");
+
           // Insert data into table
-          $sql = "INSERT INTO tbldriver (First_name, Last_name, Email, Ph_number, Lisence_no, Lisence_card, Password) VALUES ('$fname', '$lname', '$email', $ph, '$lno', '$filename', '$Pass')";
+          $sql = "INSERT INTO tbldriver (First_name, Last_name, Email, Ph_number, Profile_img, Lisence_no, Lisence_card, Password) VALUES ('$fname', '$lname', '$email', $ph, '$filename1', '$lno', '$filename', '$Pass')";
     
           if ($con->query($sql) === TRUE) {
             echo '<script>alert("new record created successfully")</script>';
@@ -110,6 +118,13 @@ if(isset($_POST['regdriver']) && (isset($_FILES["image"])))
                     <td>
                         <input type="tel" name="ph" maxlength="10" onkeypress="return onlyNumberKey(event)"
                         id="name" placeholder="Enter Your Phone Number" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label>Profile Photo : </label></td>
+                    <td>
+                        <input type="file" name="driverimg">
                     </td>
                 </tr>
 

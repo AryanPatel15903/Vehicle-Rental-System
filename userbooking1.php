@@ -7,10 +7,15 @@
     <?php 
     require_once('connection.php');
 
-    $vehicleId = $_POST['vehicle_id'];
+    $vehicleId = $_GET['vehicle_id'];
     $sql2="select *from tblvehicles where vehicle_id='$vehicleId'";
     $vehicles= mysqli_query($con,$sql2);
-    $result= mysqli_fetch_array($vehicles)
+    $result= mysqli_fetch_array($vehicles);
+
+    $sql="select *from tbldriver";
+    $drivers= mysqli_query($con,$sql);
+    
+
     ?>
 
 
@@ -71,7 +76,71 @@
                                 <input type="text" class="form-control p-4" placeholder="Mobile Number" maxlength=10 required="required">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <textarea class="form-control py-3 px-4" rows="3" placeholder="Address" required="required"></textarea>
+                            </div>
+                        </div>
                     </div>
+
+                    <h2 class="mb-4">Driver Detail</h2>
+                    <div class="mb-5">
+                        <div class="radiobtn">
+                            <input type="radio" id="driverRadio" name="driverOption"> Driver
+                            <input type="radio" id="selfDriveRadio" name="driverOption" style="margin-left: 15px;"> Self-drive
+                        </div>
+
+                        
+
+                    <div class="mb-5" id="driverFormContainer" style="display: none;">
+                        <div class="container-fluid pb-5">
+
+                        <div class="container pb-5">
+                            <div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
+                            <?php
+                                while($result1= mysqli_fetch_array($drivers))
+                                {
+                                
+                            ?>
+                                <div class="rent-item">
+                                    <img class="img-fluid mb-4" src="<?php echo $result1['Profile_img']?>" alt="">
+                                    <h4 class="text-uppercase mb-4"><?php echo $result1['First_name'] ." ".$result1['Last_name']?></h4>
+                                    <div class="d-flex justify-content-center mb-4">
+                                        
+                                    </div>
+                                    <a class="btn btn-primary px-3" >Select</a>
+                                </div>
+
+                                <?php
+                                    }
+                                ?>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <?php
+                        $Driver_id=$_GET['Driver_id'];
+                        $sql1="select *from tbldriver where Driver_id='Driver_id'";
+                        $info= mysqli_query($con,$sql1);
+                        $result2= mysqli_fetch_array($info);
+                    ?> -->
+
+                            <div class="row">
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" id="driverName" value="<?php echo $result2['First_name']?>" readonly >
+                            </div>
+                            <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Driver Mobile Number" id="driverMobile" maxlength=10 >
+                            </div>
+                            <div class="col-12 form-group">
+                                <textarea class="form-control py-3 px-4" rows="3" placeholder="Driver Address" id="driverAddress" ></textarea>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <h2 class="mb-4">Booking Detail</h2>
                     <div class="mb-5">
                         <div class="row">
@@ -137,6 +206,23 @@
 
 
     <?php include('footer.php'); ?>
+
+
+    <script>
+        const driverRadio = document.getElementById('driverRadio');
+        const selfDriveRadio = document.getElementById('selfDriveRadio');
+        const driverFormContainer = document.getElementById('driverFormContainer');
+
+        driverRadio.addEventListener('change', () => {
+        driverFormContainer.style.display = 'block';
+        });
+
+        selfDriveRadio.addEventListener('change', () => {
+        driverFormContainer.style.display = 'none';
+        });
+    </script>
+
+
   </body>
 
 </html>
