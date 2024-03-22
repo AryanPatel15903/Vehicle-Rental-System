@@ -7,7 +7,7 @@
     <?php 
     require_once('connection.php');
 
-    $vehicleId = $_GET['vehicle_id'];
+    $vehicleId = $_POST['vehicle_id'];
     $sql2="select *from tblvehicles where vehicle_id='$vehicleId'";
     $vehicles= mysqli_query($con,$sql2);
     $result= mysqli_fetch_array($vehicles)

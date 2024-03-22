@@ -21,6 +21,11 @@
 <?php
     require_once('connection.php');
 
+	$UserId = $_GET['User_id'];
+	$sql2="select *from tbluser where User_id='$UserId'";
+    $users= mysqli_query($con,$sql2);
+    $result1= mysqli_fetch_array($users);
+
     if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $fname = $_POST['fname'];
@@ -28,8 +33,14 @@
         $comment=mysqli_real_escape_string($con,$_POST['comment']);
         $sql="insert into  tblfeedback (fname,lname,email,comment) values('$fname','$lname','$email','$comment')";
         $result = mysqli_query($con,$sql);
-        echo '<script>alert("Feedback sent successfully")</script>';
-        header("Location: userbooking.php");
+		if($result){
+            echo '<script>alert("Feedback sent successfully")</script>';
+        	echo '<script> window.location.href = "userindex.php";</script>';       
+        }
+        else{
+            echo '<script>alert("please check the connection")</script>';
+        }
+        
     }
 
 ?>
@@ -41,25 +52,37 @@
     <!-- /Header --> 
 
 
-    <br><br><br>
-	<div id="form" >	
-		
-		<div class="col-md-12" id ="mainform">
-			<div class="col-sm-6">
-			   <h2  class="contact-us" style="font-size:72px; color:#000;"><strong style="font-size:5cm; color:#555;">F</strong>eedback</h2>
-			</div>
-			<div class="col-sm-6" >
-				<form method="POST">
-				<label><h4>First Name:</h4> </label><input type="text" name="fname" size="20"  class=" form-control" placeholder="First name" required />
-				<label><h4>Last Name:</h4> </label><input type="text" name="lname" size="20"  class=" form-control" placeholder="Last name" required />
-				<label><h4>Email:</h4></label> <input type="email" name="email" size="20"  class=" form-control" placeholder="User Email" required/>
-				<h4>Review:</h4><textarea class="form-control"   name="comment" rows="6"  placeholder="Message"  required></textarea>
-				<br>
-				<input type="submit" class="btn btn-info" id="btn" style="text-shadow:0 0 3px #000000; font-size:24px;" value="SUBMIT" name="submit">
-				<form>
+	<div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5">Feedback</h1>
+			<div class="formbody">
+            <div class="row">
+                    <div class="contact-form bg-secondary mb-4" style="padding: 30px;">
+                        <form method="POST">
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" name="fname" value="<?php echo $result1['First_name']?>" readonly>
+                                </div>
+                                <div class="col-6 form-group">
+                                    <input type="email" class="form-control p-4" name="lname" value="<?php echo $result1['Last_name']?>" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control p-4" name="email" value="<?php echo $result1['Email']?>" readonly>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control py-3 px-4" rows="5" name="comment" placeholder="Message" required="required"></textarea>
+                            </div>
+                            <div>
+                                <input class="btn btn-primary py-3 px-5" type="submit" name="submit" value="Send Feedback">
+                            </div>
+                        </form>
+                    </div>
+                </div>
 			</div>
 		</div>
 	</div>
+
 
 
     <!--Header-->
