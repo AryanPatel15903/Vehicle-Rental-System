@@ -19,7 +19,6 @@
     ?>
 
 
-
 <div class="container-fluid pt-5">
     <div class="container-fluid pb-5">
         <div class="container">
@@ -108,57 +107,62 @@
                                     <div class="d-flex justify-content-center mb-4">
                                         
                                     </div>
-                                    <a class="btn btn-primary px-3" >Select</a>
+                                    <a class="btn btn-primary px-3 selectbtn" data-driverid="<?php echo $result1['Driver_id']; ?>" data-first-name="<?php echo $result1['First_name']; ?>" data-mobile="<?php echo $result1['Ph_number']; ?>" data-email="<?php echo $result1['Email']; ?>" data-lno="<?php echo $result1['Lisence_no']; ?>" >Select</a>
+                                    <input type="hidden" name="selectedDriverId" value="<?php echo $result1['Driver_id']; ?>">
+                                    <input type="hidden" name="selectedDriverFirstName" value="<?php echo $result1['First_name']; ?>">
+                                    <input type="hidden" name="selectedDriverMobileNumber" value="<?php echo $result1['Ph_number']; ?>">
+                                    <input type="hidden" name="selectedDriverEmail" value="<?php echo $result1['Email']; ?>">
+                                    <input type="hidden" name="selectedDriverLisenceNo" value="<?php echo $result1['Lisence_no']; ?>">
                                 </div>
+                                
 
                                 <?php
                                     }
+                                    
                                 ?>
                                 
                             </div>
                         </div>
                     </div>
 
-                    <!-- <?php
-                        $Driver_id=$_GET['Driver_id'];
-                        $sql1="select *from tbldriver where Driver_id='Driver_id'";
-                        $info= mysqli_query($con,$sql1);
-                        $result2= mysqli_fetch_array($info);
-                    ?> -->
-
+                    
                             <div class="row">
-                            <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" id="driverName" value="<?php echo $result2['First_name']?>" readonly >
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" placeholder="Driver Id" id="driverId" readonly >
+                                </div>
                             </div>
-                            <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" placeholder="Driver Mobile Number" id="driverMobile" maxlength=10 >
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" placeholder="Driver Name" id="driverName" readonly >
+                                </div>
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" placeholder="Driver Mobile Number" id="driverMobile" maxlength=10 readonly >
+                                </div>
                             </div>
-                            <div class="col-12 form-group">
-                                <textarea class="form-control py-3 px-4" rows="3" placeholder="Driver Address" id="driverAddress" ></textarea>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" placeholder="Driver Email" id="driverEmail" readonly >
+                                </div>
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" placeholder="Driver Lisence Number" id="driverLN" readonly >
+                                </div>
                             </div>
-                            </div>
+
+                           
                         </div>
                     </div>
 
 
                     <h2 class="mb-4">Booking Detail</h2>
                     <div class="mb-5">
-                        <div class="row">
-                            <div class="col-6 form-group">
-                                <select class="custom-select px-4" style="height: 50px;">
-                                    <option selected>Pickup Location</option>
-                                    <option value="1">Location 1</option>
-                                    <option value="2">Location 2</option>
-                                    <option value="3">Location 3</option>
-                                </select>
-                            </div>
-                            <div class="col-6 form-group">
-                                <select class="custom-select px-4" style="height: 50px;">
-                                    <option selected>Drop Location</option>
-                                    <option value="1">Location 1</option>
-                                    <option value="2">Location 2</option>
-                                    <option value="3">Location 3</option>
-                                </select>
+                        <div id="bookingFormContainer" style="display: none;">
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Pickup Location" required >
+                                </div>
+                                <div class="col-6 form-group">
+                                <input type="text" class="form-control p-4" placeholder="Drop Location" required >
+                                </div>
                             </div>
                         </div>
                         <div class="row">
@@ -212,14 +216,41 @@
         const driverRadio = document.getElementById('driverRadio');
         const selfDriveRadio = document.getElementById('selfDriveRadio');
         const driverFormContainer = document.getElementById('driverFormContainer');
+        const bookingFormContainer = document.getElementById('bookingFormContainer');
 
         driverRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'block';
+        bookingFormContainer.style.display = 'block';
         });
 
         selfDriveRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'none';
+        bookingFormContainer.style.display = 'none';
         });
+
+        let selectButtons = document.querySelectorAll('.selectbtn');
+        let driverId = document.getElementById('driverId');
+        let driverName = document.getElementById('driverName');
+        let driverMobile = document.getElementById('driverMobile');
+        let driverEmail = document.getElementById('driverEmail');
+        let driverLN = document.getElementById('driverLN');
+
+        selectButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedId = button.dataset.driverid;
+                const selectedFirstName = button.dataset.firstName;
+                const selectedMobile = button.dataset.mobile;
+                const selectedEmail = button.dataset.email;
+                const selectedLN = button.dataset.lno;
+                // Use the selectedFirstName variable as needed outside the loop
+                driverId.value = selectedId;
+                driverName.value = selectedFirstName;
+                driverMobile.value = selectedMobile;
+                driverEmail.value = selectedEmail;
+                driverLN.value = selectedLN;
+            });
+        });
+       
     </script>
 
 
