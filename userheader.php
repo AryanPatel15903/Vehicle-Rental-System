@@ -104,7 +104,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="#" class="dropdown-item">The Team</a>
+                                <a href="userteam.php" class="dropdown-item">The Team</a>
                                 <a href="userfeedback.php?User_id=<?php echo $result['User_id']; ?>" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>

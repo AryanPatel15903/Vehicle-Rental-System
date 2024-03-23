@@ -88,7 +88,7 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="#" class="dropdown-item">The Team</a>
+                                <a href="adminteam.php" class="dropdown-item">The Team</a>
                                 <a href="adminfeedbacklist.php" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
