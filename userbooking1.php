@@ -14,6 +14,34 @@
 
     $sql="select *from tbldriver";
     $drivers= mysqli_query($con,$sql);
+
+
+    if(isset($_POST["submit"]))
+    {
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $mno=$_POST['mno'];
+        $address=$_POST['address'];
+        $driverOption=$_POST['driverOption'];
+        $did=$_POST["did"];
+        $dname=$_POST["dname"];
+        $dmno=$_POST["dmno"];
+        $demail=$_POST["demail"];
+        $dlsno=$_POST["dlsno"];
+        $loc=$_POST["loc"];
+        $pdate=$_POST["pdate"];
+        $ddate=$_POST["ddate"];
+        $ptime=$_POST["ptime"];
+        $dtime=$_POST["dtime"];
+        $duration=$_POST["duration"];
+        $noadults=$_POST["noadults"];
+        $nochildren=$_POST["nochildren"];
+        $srequest=$_POST["srequest"];
+
+
+
+    }
     
 
     ?>
