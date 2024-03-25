@@ -38,9 +38,6 @@
         $noadults=$_POST["noadults"];
         $nochildren=$_POST["nochildren"];
         $srequest=$_POST["srequest"];
-
-
-
     }
     
 
@@ -236,13 +233,14 @@
                             <textarea class="form-control py-3 px-4" name="srequest" rows="3" placeholder="Special Request"></textarea>
                         </div>
                     </div>
+                    <input type="submit" class="btn btn-primary py-2 px-4" name="submit" value="Proceed >">
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<input type="submit" name="submit" value="Proceed">
+
 </form>
 
 
