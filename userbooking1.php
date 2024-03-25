@@ -177,7 +177,7 @@
                             
                         </div>
                         <div class="row">
-                        <div class="col-6 form-group">
+                            <div class="col-6 form-group">
                                 <div class="time" id="time2">
                                     <input type="time" class="form-control p-4" name="ptime" id="pickupTime" placeholder="Pickup Time"/>
                                 </div>
@@ -187,12 +187,11 @@
                                     <input type="time" class="form-control p-4" name="dtime" id="dropOffTime" placeholder="Drop-off Time" onchange="calculateTotalHours()"/>
                                 </div>
                             </div>
-
-                            <!-- <button type="button" onclick="calculateTotalHours()">Calculate Total Hours</button> -->
-                            <p id="totalHoursDisplay"></p>
-
-
                         </div>
+                        <div class="form-group">
+                            Duration: <span id="totalHoursDisplay" name="duration"></span> hours
+                        </div>
+
                         <div class="row">
                             <div class="col-6 form-group">
                                 <div style="height: 50px;">
@@ -250,7 +249,7 @@
                 const selectedMobile = button.dataset.mobile;
                 const selectedEmail = button.dataset.email;
                 const selectedLN = button.dataset.lno;
-                // Use the selectedFirstName variable as needed outside the loop
+
                 driverId.value = selectedId;
                 driverName.value = selectedFirstName;
                 driverMobile.value = selectedMobile;
@@ -259,17 +258,16 @@
             });
         });
 
-</script>
-<script>
+
 
         function calculateTotalHours() {
             const pickupDate = new Date(document.getElementById("pickupDate").value + " " + document.getElementById("pickupTime").value);
             const dropOffDate = new Date(document.getElementById("dropOffDate").value + " " + document.getElementById("dropOffTime").value);
 
             const timeDiff = dropOffDate.getTime() - pickupDate.getTime();
-            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
-
-            document.getElementById("totalHoursDisplay").innerHTML = hours +" hours";
+            const hours = (timeDiff / (1000 * 60 * 60));
+            const formattedHours = hours.toFixed(2);
+            document.getElementById("totalHoursDisplay").innerHTML = formattedHours;
         }
     
 
