@@ -18,6 +18,7 @@
 
     if(isset($_POST["submit"]))
     {
+        $vehicle_id=$_POST['vehicle_id'];
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
         $email=$_POST['email'];
@@ -25,10 +26,6 @@
         $address=$_POST['address'];
         $driverOption=$_POST['driverOption'];
         $did=$_POST["did"];
-        $dname=$_POST["dname"];
-        $dmno=$_POST["dmno"];
-        $demail=$_POST["demail"];
-        $dlsno=$_POST["dlsno"];
         $loc=$_POST["loc"];
         $pdate=$_POST["pdate"];
         $ddate=$_POST["ddate"];
@@ -39,14 +36,23 @@
         $nochildren=$_POST["nochildren"];
         $srequest=$_POST["srequest"];
 
+        $sql1="insert into  tblbooking (vehicle_id,First_name,Last_name,Email,Ph_no,Address,Driver,Driver_id,Pickup_loc,Pickup_date,Dropoff_date,Pickup_time,Dropoff_time,Duration,Adult_no,Children_no,Request) 
+        values('$vehicle_id','$fname','$lname','$email','$mno','$address','$driverOption','$did','$loc','$pdate','$ddate','$ptime','$dtime','$duration','$noadults','$nochildren','$srequest')";
+        $result = mysqli_query($con,$sql1);
 
-
+        if($result){
+            echo '<script>alert("successfully")</script>';
+        	echo '<script> window.location.href = "payment.php";</script>';       
+        }
+        else{
+            echo '<script>alert("please check the connection")</script>';
+        }
     }
     
 
     ?>
 
-<form action="payment.php" method="POST">
+<form action="userbooking1.php" method="POST">
 <div class="container-fluid pt-5">
     <div class="container-fluid pb-5">
         <div class="container">
@@ -54,6 +60,12 @@
                 <div class="col-lg-8">
                     <h2 class="mb-4">Vehicle Detail</h2>
                     <div class="mb-5">
+                    <div class="row">
+                            <div class="col-12 form-group">
+                                Vehicle ID:
+                                <input type="text" class="form-control p-4" name="vehicle_id" value="<?php echo $result['vehicle_id']?>" readonly>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-6 form-group">
                                 Vehicle Name:
@@ -113,8 +125,8 @@
                     <h2 class="mb-4">Driver Detail</h2>
                     <div class="mb-5">
                         <div class="radiobtn">
-                            <input type="radio" id="driverRadio" name="driverOption"> Driver
-                            <input type="radio" id="selfDriveRadio" name="driverOption" style="margin-left: 15px;"> Self-drive
+                            <input type="radio" id="driverRadio" name="driverOption" value="yes"> Driver
+                            <input type="radio" id="selfDriveRadio" name="driverOption" value="no" style="margin-left: 15px;"> Self-drive
                         </div>
 
                         
@@ -217,7 +229,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            Duration: <span style="color:red;" id="totalHoursDisplay" name="duration" >0</span> hours
+                            Duration: <span id="totalHoursDisplay" name="duration"></span> hours
                         </div>
 
                         <div class="row">
