@@ -165,32 +165,33 @@
                             </div>
                         <div class="row">
                             <div class="col-6 form-group">
-                                <div class="date" id="date2" data-target-input="nearest">
-                                    <input type="text" class="form-control p-4 datetimepicker-input" name="pdate" placeholder="Pickup Date"
-                                        data-target="#date2" data-toggle="datetimepicker" />
+                                <div class="date" id="date2">
+                                    <input type="date" class="form-control p-4" name="pdate" id="pickupDate" placeholder="Pickup Date"/>
                                 </div>
                             </div>
                             <div class="col-6 form-group">
-                                <div class="date" id="date3" data-target-input="nearest">
-                                    <input type="text" class="form-control p-4 datetimepicker-input" name="ddate" placeholder="Drop-off Date"
-                                        data-target="#date3" data-toggle="datetimepicker" />
+                                <div class="date" id="date3">
+                                    <input type="date" class="form-control p-4" name="ddate" id="dropOffDate" placeholder="Drop-off Date"/>
                                 </div>
                             </div>
                             
                         </div>
                         <div class="row">
                         <div class="col-6 form-group">
-                                <div class="time" id="time2" data-target-input="nearest">
-                                    <input type="text" class="form-control p-4 datetimepicker-input" name="ptime" placeholder="Pickup Time"
-                                        data-target="#time2" data-toggle="datetimepicker" />
+                                <div class="time" id="time2">
+                                    <input type="time" class="form-control p-4" name="ptime" id="pickupTime" placeholder="Pickup Time"/>
                                 </div>
                             </div>
                             <div class="col-6 form-group">
-                                <div class="time" id="time3" data-target-input="nearest">
-                                    <input type="text" class="form-control p-4 datetimepicker-input" name="dtime" placeholder="Drop-off Time"
-                                        data-target="#time3" data-toggle="datetimepicker" />
+                                <div class="time" id="time3">
+                                    <input type="time" class="form-control p-4" name="dtime" id="dropOffTime" placeholder="Drop-off Time" onchange="calculateTotalHours()"/>
                                 </div>
                             </div>
+
+                            <!-- <button type="button" onclick="calculateTotalHours()">Calculate Total Hours</button> -->
+                            <p id="totalHoursDisplay"></p>
+
+
                         </div>
                         <div class="row">
                             <div class="col-6 form-group">
@@ -213,6 +214,8 @@
         </div>
     </div>
 </div>
+
+<input type="submit" name="submit" value="Proceed">
 </form>
 
 
@@ -255,7 +258,21 @@
                 driverLN.value = selectedLN;
             });
         });
-       
+
+</script>
+<script>
+
+        function calculateTotalHours() {
+            const pickupDate = new Date(document.getElementById("pickupDate").value + " " + document.getElementById("pickupTime").value);
+            const dropOffDate = new Date(document.getElementById("dropOffDate").value + " " + document.getElementById("dropOffTime").value);
+
+            const timeDiff = dropOffDate.getTime() - pickupDate.getTime();
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+
+            document.getElementById("totalHoursDisplay").innerHTML = hours +" hours";
+        }
+    
+
     </script>
 
 
