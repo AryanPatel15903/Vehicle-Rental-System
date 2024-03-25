@@ -217,7 +217,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            Duration: <span id="totalHoursDisplay" name="duration"></span> hours
+                            Duration: <span style="color:red;" id="totalHoursDisplay" name="duration" >0</span> hours
                         </div>
 
                         <div class="row">
