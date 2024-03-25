@@ -36,17 +36,19 @@
         $nochildren=$_POST["nochildren"];
         $srequest=$_POST["srequest"];
 
+
         $sql1="insert into  tblbooking (vehicle_id,First_name,Last_name,Email,Ph_no,Address,Driver,Driver_id,Pickup_loc,Pickup_date,Dropoff_date,Pickup_time,Dropoff_time,Duration,Adult_no,Children_no,Request) 
         values('$vehicle_id','$fname','$lname','$email','$mno','$address','$driverOption','$did','$loc','$pdate','$ddate','$ptime','$dtime','$duration','$noadults','$nochildren','$srequest')";
-        $result = mysqli_query($con,$sql1);
+        $results = mysqli_query($con,$sql1);
 
-        if($result){
+        if($results){
             echo '<script>alert("successfully")</script>';
         	echo '<script> window.location.href = "payment.php";</script>';       
         }
         else{
             echo '<script>alert("please check the connection")</script>';
         }
+
     }
     
 
@@ -248,13 +250,14 @@
                             <textarea class="form-control py-3 px-4" name="srequest" rows="3" placeholder="Special Request"></textarea>
                         </div>
                     </div>
+                    <input type="submit" class="btn btn-primary py-2 px-4" name="submit" value="Proceed >">
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<input type="submit" name="submit" value="Proceed">
+
 </form>
 
 
