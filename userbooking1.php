@@ -18,7 +18,7 @@
 
     ?>
 
-
+<form action="payment.php" method="POST">
 <div class="container-fluid pt-5">
     <div class="container-fluid pb-5">
         <div class="container">
@@ -29,31 +29,31 @@
                         <div class="row">
                             <div class="col-6 form-group">
                                 Vehicle Name:
-                                <input type="text" class="form-control p-4" value="<?php echo $result['vehicle_name']?>" readonly>
+                                <input type="text" class="form-control p-4" name="vname" value="<?php echo $result['vehicle_name']?>" readonly>
                             </div>
                             <div class="col-6 form-group">
                                 Model:
-                                <input type="text" class="form-control p-4" value="<?php echo $result['model'] ?>" readonly>
+                                <input type="text" class="form-control p-4" name="vmodel" value="<?php echo $result['model'] ?>" readonly>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 form-group">
                                 Vehicle Type:
-                                <input type="email" class="form-control p-4" value="<?php echo $result['vehicle_type'] ?>" readonly>
+                                <input type="email" class="form-control p-4" name="vtype" value="<?php echo $result['vehicle_type'] ?>" readonly>
                             </div>
                             <div class="col-6 form-group">
                                 Mileage:
-                                <input type="text" class="form-control p-4" value="<?php echo $result['mileage'] ?> km/liter" readonly>
+                                <input type="text" class="form-control p-4" name="vmileage" value="<?php echo $result['mileage'] ?> km/liter" readonly>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 form-group">
                                 Seating capacity:
-                                <input type="text" class="form-control p-4" value="<?php echo $result['capacity'] ?> person" readonly>
+                                <input type="text" class="form-control p-4" name="vcapacity" value="<?php echo $result['capacity'] ?> person" readonly>
                             </div>
                             <div class="col-6 form-group">
                                 Fuel Type:
-                                <input type="text" class="form-control p-4" value="<?php echo $result['fuel_type'] ?>" readonly>
+                                <input type="text" class="form-control p-4" name="vftype" value="<?php echo $result['fuel_type'] ?>" readonly>
                             </div>
                         </div>
                     </div>
@@ -61,23 +61,23 @@
                     <div class="mb-5">
                         <div class="row">
                             <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" placeholder="First Name" required="required">
+                                <input type="text" class="form-control p-4" name="fname" placeholder="First Name" required>
                             </div>
                             <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" placeholder="Last Name" required="required">
+                                <input type="text" class="form-control p-4" name="lname" placeholder="Last Name" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 form-group">
-                                <input type="email" class="form-control p-4" placeholder="Your Email" required="required">
+                                <input type="email" class="form-control p-4" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" placeholder="Mobile Number" maxlength=10 required="required">
+                                <input type="text" class="form-control p-4" name="mno" placeholder="Mobile Number" maxlength=10 required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 form-group">
-                                <textarea class="form-control py-3 px-4" rows="3" placeholder="Address" required="required"></textarea>
+                                <textarea class="form-control py-3 px-4" name="address" rows="3" placeholder="Address" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -128,23 +128,23 @@
                     
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Driver Id" id="driverId" readonly >
+                                    <input type="text" class="form-control p-4" name="did" placeholder="Driver Id" id="driverId" readonly >
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Driver Name" id="driverName" readonly >
+                                    <input type="text" class="form-control p-4" name="dname" placeholder="Driver Name" id="driverName" readonly >
                                 </div>
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Driver Mobile Number" id="driverMobile" maxlength=10 readonly >
+                                    <input type="text" class="form-control p-4" name="dmno" placeholder="Driver Mobile Number" id="driverMobile" maxlength=10 readonly >
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Driver Email" id="driverEmail" readonly >
+                                    <input type="text" class="form-control p-4" name="demail" placeholder="Driver Email" id="driverEmail" readonly >
                                 </div>
                                 <div class="col-6 form-group">
-                                    <input type="text" class="form-control p-4" placeholder="Driver Lisence Number" id="driverLN" readonly >
+                                    <input type="text" class="form-control p-4" name="dlsno" placeholder="Driver Lisence Number" id="driverLN" readonly >
                                 </div>
                             </div>
 
@@ -154,51 +154,58 @@
 
 
                     <h2 class="mb-4">Booking Detail</h2>
-                    <div class="mb-5">
-                        <div id="bookingFormContainer" style="display: none;">
+                    <div class="mb-5">  
                             <div class="row">
-                                <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" placeholder="Pickup Location" required >
+                                <div class="col-12 form-group">
+                                <textarea class="form-control p-4" name="loc" placeholder="Pickup Location" required ></textarea>
                                 </div>
-                                <div class="col-6 form-group">
+                                <!-- <div class="col-6 form-group">
                                 <input type="text" class="form-control p-4" placeholder="Drop Location" required >
-                                </div>
+                                </div> -->
                             </div>
-                        </div>
                         <div class="row">
                             <div class="col-6 form-group">
                                 <div class="date" id="date2" data-target-input="nearest">
-                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Date"
+                                    <input type="text" class="form-control p-4 datetimepicker-input" name="pdate" placeholder="Pickup Date"
                                         data-target="#date2" data-toggle="datetimepicker" />
                                 </div>
                             </div>
                             <div class="col-6 form-group">
+                                <div class="date" id="date3" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" name="ddate" placeholder="Drop-off Date"
+                                        data-target="#date3" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                        <div class="col-6 form-group">
                                 <div class="time" id="time2" data-target-input="nearest">
-                                    <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Pickup Time"
+                                    <input type="text" class="form-control p-4 datetimepicker-input" name="ptime" placeholder="Pickup Time"
                                         data-target="#time2" data-toggle="datetimepicker" />
+                                </div>
+                            </div>
+                            <div class="col-6 form-group">
+                                <div class="time" id="time3" data-target-input="nearest">
+                                    <input type="text" class="form-control p-4 datetimepicker-input" name="dtime" placeholder="Drop-off Time"
+                                        data-target="#time3" data-toggle="datetimepicker" />
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-6 form-group">
-                                <select class="custom-select px-4" style="height: 50px;">
-                                    <option selected>Select Adult</option>
-                                    <option value="1">Adult 1</option>
-                                    <option value="2">Adult 2</option>
-                                    <option value="3">Adult 3</option>
-                                </select>
+                                <div style="height: 50px;">
+                                    <input type="number" class="form-control p-4" name="noadults" placeholder="No of Adults">
+                                </div>
                             </div>
                             <div class="col-6 form-group">
-                                <select class="custom-select px-4" style="height: 50px;">
-                                    <option selected>Select Child</option>
-                                    <option value="1">Child 1</option>
-                                    <option value="2">Child 2</option>
-                                    <option value="3">Child 3</option>
-                                </select>
+                                <div style="height: 50px;">
+                                    <input type="number" class="form-control p-4" name="nochildren" placeholder="No of Children">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control py-3 px-4" rows="3" placeholder="Special Request" required="required"></textarea>
+                            <textarea class="form-control py-3 px-4" name="srequest" rows="3" placeholder="Special Request"></textarea>
                         </div>
                     </div>
                 </div>
@@ -206,6 +213,7 @@
         </div>
     </div>
 </div>
+</form>
 
 
 
@@ -216,16 +224,13 @@
         const driverRadio = document.getElementById('driverRadio');
         const selfDriveRadio = document.getElementById('selfDriveRadio');
         const driverFormContainer = document.getElementById('driverFormContainer');
-        const bookingFormContainer = document.getElementById('bookingFormContainer');
 
         driverRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'block';
-        bookingFormContainer.style.display = 'block';
         });
 
         selfDriveRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'none';
-        bookingFormContainer.style.display = 'none';
         });
 
         let selectButtons = document.querySelectorAll('.selectbtn');
