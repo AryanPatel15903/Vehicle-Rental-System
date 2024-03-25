@@ -15,46 +15,9 @@
     $sql="select *from tbldriver";
     $drivers= mysqli_query($con,$sql);
 
-
-    if(isset($_POST["submit"]))
-    {
-        $vehicle_id=$_POST['vehicle_id'];
-        $fname=$_POST['fname'];
-        $lname=$_POST['lname'];
-        $email=$_POST['email'];
-        $mno=$_POST['mno'];
-        $address=$_POST['address'];
-        $driverOption=$_POST['driverOption'];
-        $did=$_POST["did"];
-        $loc=$_POST["loc"];
-        $pdate=$_POST["pdate"];
-        $ddate=$_POST["ddate"];
-        $ptime=$_POST["ptime"];
-        $dtime=$_POST["dtime"];
-        $duration=$_POST["duration"];
-        $noadults=$_POST["noadults"];
-        $nochildren=$_POST["nochildren"];
-        $srequest=$_POST["srequest"];
-
-
-        $sql1="insert into  tblbooking (vehicle_id,First_name,Last_name,Email,Ph_no,Address,Driver,Driver_id,Pickup_loc,Pickup_date,Dropoff_date,Pickup_time,Dropoff_time,Duration,Adult_no,Children_no,Request) 
-        values('$vehicle_id','$fname','$lname','$email','$mno','$address','$driverOption','$did','$loc','$pdate','$ddate','$ptime','$dtime','$duration','$noadults','$nochildren','$srequest')";
-        $results = mysqli_query($con,$sql1);
-
-        if($results){
-            echo '<script>alert("successfully")</script>';
-        	echo '<script> window.location.href = "payment.php";</script>';       
-        }
-        else{
-            echo '<script>alert("please check the connection")</script>';
-        }
-
-    }
-    
-
     ?>
 
-<form action="userbooking1.php" method="POST">
+<form action="payment.php" method="POST">
 <div class="container-fluid pt-5">
     <div class="container-fluid pb-5">
         <div class="container">
@@ -63,7 +26,7 @@
                     <h2 class="mb-4">Vehicle Detail</h2>
                     <div class="mb-5">
                     <div class="row">
-                            <div class="col-12 form-group">
+                            <div class="col-6 form-group">
                                 Vehicle ID:
                                 <input type="text" class="form-control p-4" name="vehicle_id" value="<?php echo $result['vehicle_id']?>" readonly>
                             </div>
@@ -231,7 +194,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            Duration: <span style="color:red;" id="totalHoursDisplay" name="duration">0</span> hours
+                            Duration: <input type="text" style="width: 10%; color:red; text-align:center;" id="totalHoursDisplay" name="duration" value="0" readonly> hours
                         </div>
 
                         <div class="row">
@@ -310,7 +273,7 @@
             const timeDiff = dropOffDate.getTime() - pickupDate.getTime();
             const hours = (timeDiff / (1000 * 60 * 60));
             const formattedHours = hours.toFixed(2);
-            document.getElementById("totalHoursDisplay").innerHTML = formattedHours;
+            document.getElementById("totalHoursDisplay").value = formattedHours;
         }
     
 
