@@ -89,8 +89,11 @@
 
 
 <?php include('footer.php'); ?>
-
-
+<?php
+  session_start();
+  $_SESSION['amount']=$amount;
+  header('location:bank.php');
+?>
 
 <script>
   
@@ -134,7 +137,7 @@ $(document).ready(function() {
           }
         }
       },
-      cvv: { // Remove the extra closing parenthesis here
+      cvv: {
         verbose: false,
         validators: {
           notEmpty: {

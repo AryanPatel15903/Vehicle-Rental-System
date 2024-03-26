@@ -219,10 +219,11 @@
                                 <div class="col-6 form-group">
                                     <input type="text" class="form-control p-4" name="price" placeholder="0" id="paymentprice" readonly >
                                 </div>
+                                <div class="mt-3">
+                                    Rs.
+                                </div>
                             </div>
-                            
                         </div>
-
                     </div>
                     <input type="submit" class="btn btn-primary py-2 px-4" name="submit" value="Proceed >">
                 </div>
@@ -231,10 +232,7 @@
     </div>
 </div>
 
-
 </form>
-
-
 
     <?php include('footer.php'); ?>
 
