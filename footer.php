@@ -86,7 +86,7 @@
                     <div class="input-group">
         
                         <div class="input-group-append">
-                            <button href="login.php" class="btn btn-primary text-uppercase px-3">Sign Up Now</button>
+                            <button onclick="redirectToNextPage()" class="btn btn-primary text-uppercase px-3">Sign Up Now</button>
                         </div>
                     </div>
                 </div>
@@ -114,6 +114,11 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+        function redirectToNextPage() {
+            window.location.href = "login.php";
+        }
+  </script>
 
     </body>
 </html>
