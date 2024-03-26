@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+    <style>
+        /* Style error messages to appear in red color */
+        .has-error .help-block {
+          color: red;
+        }
+        .form-group.has-error .form-control {
+          box-shadow: 0 0 0 0.2rem rgba(255, 0, 0, 0.5); /* Red shadow for error */
+        }
+
+        .form-group.has-success .form-control {
+          box-shadow: 0 0 0 0.2rem rgba(0, 255, 0, 0.5); /* Green shadow for success */
+        }
+    </style>
+</head>
 
 
 <body>
@@ -75,7 +90,10 @@
 
 <?php include('footer.php'); ?>
 
+
+
 <script>
+  
 $(document).ready(function() {
   $('#form1').bootstrapValidator({
     fields: {
