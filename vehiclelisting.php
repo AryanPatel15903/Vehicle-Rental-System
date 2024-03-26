@@ -21,7 +21,10 @@
         $mileage = $_POST['mileage'];
         $vehicleType = $_POST['vehicle_type'];
         $capacity = $_POST['capacity'];
-        $price = $_POST['price'];
+        $price1 = $_POST['price1'];
+        $price2 = $_POST['price2'];
+        $price3 = $_POST['price3'];
+        $price4 = $_POST['price4'];
         $fuelType = $_POST['fuel_type'];
         $description = $_POST['description'];
         $image1 = $_FILES["image1"]["name"];
@@ -61,7 +64,7 @@
         $insurancefile = "$target/$insurance";
         move_uploaded_file($tmpinsurance, "$insurancefile");
 
-        $sql = "INSERT INTO tblvehicles (vehicle_name, vehicle_brand, vehicle_number_plate, model, mileage, vehicle_type, capacity, price, fuel_type, description, image1, image2, image3, image4, image5, puc, insurance) VALUES ('$vehicleName', '$vehicleBrand', '$vehicleNumberPlate', '$model', $mileage, '$vehicleType', '$capacity', $price, '$fuelType', '$description', '$filename1', '$filename2', '$filename3', '$filename4', '$filename5', '$pucfile', '$insurancefile')";
+        $sql = "INSERT INTO tblvehicles (vehicle_name, vehicle_brand, vehicle_number_plate, model, mileage, vehicle_type, capacity, priceph, pricepd, dpriceph, dpricepd, fuel_type, description, image1, image2, image3, image4, image5, puc, insurance) VALUES ('$vehicleName', '$vehicleBrand', '$vehicleNumberPlate', '$model', $mileage, '$vehicleType', '$capacity', $price1, $price2, $price3, $price4, '$fuelType', '$description', '$filename1', '$filename2', '$filename3', '$filename4', '$filename5', '$pucfile', '$insurancefile')";
 
         if ($con->query($sql) === TRUE) {
             echo '<script>alert("new record added successfully")</script>';
@@ -98,8 +101,17 @@
         <label for="capacity">Capacity (seating):</label>
         <input type="text" id="capacity" name="capacity" required>
 
+        <label for="price">Price (per hour):</label>
+        <input type="text" id="price" name="price1" min="0" required>
+
         <label for="price">Price (per day):</label>
-        <input type="number" id="price" name="price" min="0" required>
+        <input type="text" id="price" name="price2" min="0" required>
+
+        <label for="price">Price with driver (per hour):</label>
+        <input type="text" id="price" name="price3" min="0" required>
+
+        <label for="price">Price with driver (per day):</label>
+        <input type="text" id="price" name="price4" min="0" required>
 
         <label for="fuel_type">Fuel Type:</label>
         <select id="fuel_type" name="fuel_type" required>

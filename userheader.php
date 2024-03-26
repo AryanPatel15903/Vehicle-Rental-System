@@ -27,6 +27,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Validation -->
+    <link rel="stylesheet" href="validation/dist/css/bootstrapValidator.css"/>
 </head>
 
 <body>

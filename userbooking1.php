@@ -212,6 +212,17 @@
                         <div class="form-group">
                             <textarea class="form-control py-3 px-4" name="srequest" rows="3" placeholder="Special Request"></textarea>
                         </div>
+
+                        <h2 class="mb-4">Payable Amount</h2>
+                        <div class="mb-5">
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <input type="text" class="form-control p-4" name="price" placeholder="0" id="paymentprice" readonly >
+                                </div>
+                            </div>
+                            
+                        </div>
+
                     </div>
                     <input type="submit" class="btn btn-primary py-2 px-4" name="submit" value="Proceed >">
                 </div>
@@ -232,14 +243,35 @@
         const driverRadio = document.getElementById('driverRadio');
         const selfDriveRadio = document.getElementById('selfDriveRadio');
         const driverFormContainer = document.getElementById('driverFormContainer');
+        const paymentPriceInput = document.getElementById('paymentprice');
 
         driverRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'block';
+        updatePayableAmount();
         });
 
         selfDriveRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'none';
+        updatePayableAmount();
         });
+
+        function updatePayableAmount() {
+            const duration = parseFloat(document.getElementById('totalHoursDisplay').value);
+            let price = 0;
+
+            // Fetch the price based on the selected option
+            if (driverRadio.checked) {
+                price = <?php echo $result['dpriceph']; ?>;
+            } else if (selfDriveRadio.checked) {
+                price = <?php echo $result['priceph']; ?>;
+            }
+
+            // Calculate payable amount
+            const payableAmount = duration * price;
+
+            // Update the payment price input field
+            paymentPriceInput.value = payableAmount.toFixed(2);
+        }
 
         let selectButtons = document.querySelectorAll('.selectbtn');
         let driverId = document.getElementById('driverId');
@@ -261,6 +293,8 @@
                 driverMobile.value = selectedMobile;
                 driverEmail.value = selectedEmail;
                 driverLN.value = selectedLN;
+
+
             });
         });
 
@@ -274,6 +308,8 @@
             const hours = (timeDiff / (1000 * 60 * 60));
             const formattedHours = hours.toFixed(2);
             document.getElementById("totalHoursDisplay").value = formattedHours;
+
+            updatePayableAmount();
         }
     
 
