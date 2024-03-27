@@ -46,13 +46,13 @@
         $amount=$_POST["price"];
 
 
-        // $sql1="insert into  tblbooking (vehicle_id,First_name,Last_name,Email,Ph_no,Address,Driver,Driver_id,Pickup_loc,Pickup_date,Dropoff_date,Pickup_time,Dropoff_time,Duration,Adult_no,Children_no,Request,amount) 
-        // values('$vehicle_id','$fname','$lname','$email','$mno','$address','$driverOption','$did','$loc','$pdate','$ddate','$ptime','$dtime','$duration','$noadults','$nochildren','$srequest', '$amount')";
-        // $results = mysqli_query($con,$sql1);
+        
 
     }
 
     ?>
+
+    
 
 <div class="container-fluid pt-5">
     <div class="container-fluid pb-2">
@@ -78,7 +78,7 @@
                             <input type="text" class="form-control" name="cvv">
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" class="btn btn-primary py-2 px-4" value="Make Payment">
+                            <input type="submit" name="submit" class="btn btn-primary py-2 px-4" value="Payment">
                         </div>
                     </div>
                 </form>
@@ -88,12 +88,33 @@
 </div>
 
 
-<?php include('footer.php'); ?>
 <?php
-  session_start();
+  // session_start();
   $_SESSION['amount']=$amount;
-  header('location:bank.php');
+  $_SESSION['email']=$email;
+
+  $_SESSION['vehicle_id']=$vehicle_id;
+  $_SESSION['fname']=$fname;
+  $_SESSION['lname']=$lname;
+  $_SESSION['mno']=$mno;
+  $_SESSION['address']=$address;
+  $_SESSION['driverOption']=$driverOption;
+  $_SESSION['did']=$did;
+  $_SESSION['loc']=$loc;
+  $_SESSION['pdate']=$pdate;
+  $_SESSION['ddate']=$ddate;
+  $_SESSION['ptime']=$ptime;
+  $_SESSION['dtime']=$dtime;
+  $_SESSION['duration']=$duration;
+  $_SESSION['noadults']=$noadults;
+  $_SESSION['nochildren']=$nochildren;
+  $_SESSION['srequest']=$srequest;
+  // header('location:bank.php');
 ?>
+
+<?php include('footer.php'); ?>
+
+
 
 <script>
   

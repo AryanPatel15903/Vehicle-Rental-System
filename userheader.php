@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php session_start();?>
 <head>
     <meta charset="utf-8">
     <title>Vehicle Rental System</title>
@@ -68,7 +68,7 @@
 
     <?php
         require_once('connection.php');
-        session_start();
+        
 
         if (!isset($_SESSION['email'])) {
             header("Location: login.php");
@@ -102,6 +102,7 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="uservehicledetail.php" class="dropdown-item">Vehicle Detail</a>
                                 <a href="userbooking.php" class="dropdown-item">Vehicle Booking</a>
+                                <a href="userbookinghistory.php" class="dropdown-item">Booking History</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
