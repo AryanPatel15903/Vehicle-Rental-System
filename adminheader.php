@@ -83,6 +83,7 @@
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="vehiclelisting.php" class="dropdown-item">Vehicle Listing</a>
                                 <a href="vehicledetail.php" class="dropdown-item">Vehicle Detail</a>
+                                <a href="adminuserbookinghistory.php" class="dropdown-item">Booking History</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
