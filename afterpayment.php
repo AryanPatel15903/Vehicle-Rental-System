@@ -95,48 +95,10 @@
         $num=mysqli_num_rows($queryy);
     ?>
 
-        <div>
-            <div>
-                <div>
-                <table class="content-table">
-                <thread>
-                    <tr>
-                        <th>ID</th> 
-                        <th>Driver</th> 
-                        <th>Driver id</th>
-                        <th>Pickup location</th> 
-                        <th>Pickup date</th>
-                        <th>Dropoff date</th>
-                        <th>Pickup time</th>
-                        <th>Dropoff time</th>
-                        <th>Duration</th>
-                        <th>Amount</th>
-                    </tr>
-                </thread>
-                <tbody>
-
-                <?php
-                    while($res=mysqli_fetch_array($queryy)){
-                ?>
-                <tr  class="active-row">
-                    <td><?php echo $res['id'];?></php></td>
-                    <td><?php echo $res['Driver'];?></php></td>
-                    <td><?php echo $res['Driver_id'];?></php></td>
-                    <td><?php echo $res['Pickup_loc'];?></php></td>
-                    <td><?php echo $res['Pickup_date'];?></php></td>
-                    <td><?php echo $res['Dropoff_date'];?></php></td>
-                    <td><?php echo $res['Pickup_time'];?></php></td>
-                    <td><?php echo $res['Dropoff_time'];?></php></td>
-                    <td><?php echo $res['Duration'];?></php></td>
-                    <td><?php echo $res['amount'];?></php></td>
-                </tr>
-               <?php } ?>
-                    </table>
-                    </div>
-                </div>
-            </div>
-
-               
+    <?php include('msgbox.php');?>
+    <div style="text-align: center; margin-top: 50px;">
+    <button class="btn btn-primary py-2 px-4" onclick="window.location.href = 'userindex.php'">Go to User Index</button>
+    </div>
                <script>
                    let subMenu = document.getElementById("submenu");
                    
