@@ -50,10 +50,10 @@
             <div class="col-lg-3 col-md-6 mb-5">
                 <h4 class="text-uppercase text-light mb-4">Usefull Links</h4>
                 <div class="d-flex flex-column justify-content-start">
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Private Policy</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Term & Conditions</a>
-                    <a class="text-body mb-2" href="#"><i class="fa fa-angle-right text-white mr-2"></i>New Member Registration</a>
-                    <a class="text-body" href="#"><i class="fa fa-angle-right text-white mr-2"></i>Help & FQAs</a>
+                    <a class="text-body mb-2" href="privacypolicy.php"><i class="fa fa-angle-right text-white mr-2"></i>Privacy Policy</a>
+                    <a class="text-body mb-2" href="termandcondition.php"><i class="fa fa-angle-right text-white mr-2"></i>Term & Conditions</a>
+                    <a class="text-body mb-2" href="registration.php"><i class="fa fa-angle-right text-white mr-2"></i>New Member Registration</a>
+                    <a class="text-body" href="contact.php"><i class="fa fa-angle-right text-white mr-2"></i>Help & FQAs</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
@@ -119,7 +119,7 @@
     <script src="js/main.js"></script>
     <script>
         function redirectToNextPage() {
-            window.location.href = "login.php";
+            window.location.href = "registration.php";
         }
   </script>
 
