@@ -90,8 +90,8 @@
                     <h2 class="mb-4">Driver Detail</h2>
                     <div class="mb-5">
                         <div class="radiobtn">
-                            <input type="radio" id="driverRadio" name="driverOption" value="yes"> Driver
-                            <input type="radio" id="selfDriveRadio" name="driverOption" value="no" style="margin-left: 15px;"> Self-drive
+                            <input type="radio" id="driverRadio" name="driverOption" value="yes" required> Driver
+                            <input type="radio" id="selfDriveRadio" name="driverOption" value="no" style="margin-left: 15px;" require> Self-drive
                         </div>
 
                         
@@ -159,16 +159,19 @@
 
 
                     <h2 class="mb-4">Booking Detail</h2>
-                    <div class="mb-5">  
+                    <div class="mb-5">
+                    <div id="locationContainer" style="display: none;">  
+                            <div class="radiobtn form-group">
+                                <input type="radio" id="selfDriveRadioLoc" name="locOption" value="location" required> By Loaction
+                                <input type="radio" id="selfDriveRadioOffice" name="locOption" value="office" style="margin-left: 15px;" required> By Office
+                            </div>
+                    </div>
                             <div class="row">
                                 <div class="col-12 form-group">
-                                <textarea class="form-control p-4" name="loc" placeholder="Pickup Location" required ></textarea>
+                                <textarea class="form-control p-4" id="picloc" name="loc" placeholder="Pickup Location" required ></textarea>
                                 </div>
-                                <!-- <div class="col-6 form-group">
-                                <input type="text" class="form-control p-4" placeholder="Drop Location" required >
-                                </div> -->
                             </div>
-                        <div class="row">
+                            <div class="row">
                             <div class="col-6 form-group">
                                 <div class="date" id="date2">
                                     <input type="date" class="form-control p-4" name="pdate" id="pickupDate" placeholder="Pickup Date"/>
@@ -242,26 +245,48 @@
         const selfDriveRadio = document.getElementById('selfDriveRadio');
         const driverFormContainer = document.getElementById('driverFormContainer');
         const paymentPriceInput = document.getElementById('paymentprice');
+        const locationContainer = document.getElementById('locationContainer');
+        const picloc = document.getElementById('picloc');
+        const selfDriveRadioLoc = document.getElementById('selfDriveRadioLoc');
+        const selfDriveRadioOffice = document.getElementById('selfDriveRadioOffice');
 
         driverRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'block';
+        locationContainer.style.display = 'none';
         updatePayableAmount();
         });
 
         selfDriveRadio.addEventListener('change', () => {
         driverFormContainer.style.display = 'none';
+        locationContainer.style.display = 'block';
+        updatePayableAmount();
+        });
+
+        selfDriveRadioLoc.addEventListener('change', () => {
+        picloc.style.display = 'block';
+        updatePayableAmount();
+        });
+        
+        selfDriveRadioOffice.addEventListener('change', () => {
+        picloc.style.display = 'none';
         updatePayableAmount();
         });
 
         function updatePayableAmount() {
             const duration = parseFloat(document.getElementById('totalHoursDisplay').value);
             let price = 0;
+            let extra = 50.00;
 
             // Fetch the price based on the selected option
             if (driverRadio.checked) {
                 price = <?php echo $result['dpriceph']; ?>;
             } else if (selfDriveRadio.checked) {
                 price = <?php echo $result['priceph']; ?>;
+            }
+
+            //by location radio button
+            if (selfDriveRadioLoc.checked) {
+                price = price + extra ;
             }
 
             // Calculate payable amount
