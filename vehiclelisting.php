@@ -20,6 +20,7 @@
         $model = $_POST['model'];
         $mileage = $_POST['mileage'];
         $vehicleType = $_POST['vehicle_type'];
+        $vehicleType1 = $_POST['vehicle_type1'];
         $capacity = $_POST['capacity'];
         $price1 = $_POST['price1'];
         $price2 = $_POST['price2'];
@@ -64,7 +65,7 @@
         $insurancefile = "$target/$insurance";
         move_uploaded_file($tmpinsurance, "$insurancefile");
 
-        $sql = "INSERT INTO tblvehicles (vehicle_name, vehicle_brand, vehicle_number_plate, model, mileage, vehicle_type, capacity, priceph, pricepd, dpriceph, dpricepd, fuel_type, description, image1, image2, image3, image4, image5, puc, insurance) VALUES ('$vehicleName', '$vehicleBrand', '$vehicleNumberPlate', '$model', $mileage, '$vehicleType', '$capacity', $price1, $price2, $price3, $price4, '$fuelType', '$description', '$filename1', '$filename2', '$filename3', '$filename4', '$filename5', '$pucfile', '$insurancefile')";
+        $sql = "INSERT INTO tblvehicles (vehicle_name, vehicle_brand, vehicle_number_plate, model, mileage, vehicle_type, vehicle_type1, capacity, priceph, pricepd, dpriceph, dpricepd, fuel_type, description, image1, image2, image3, image4, image5, puc, insurance) VALUES ('$vehicleName', '$vehicleBrand', '$vehicleNumberPlate', '$model', $mileage, '$vehicleType', '$vehicle_type1', '$capacity', $price1, $price2, $price3, $price4, '$fuelType', '$description', '$filename1', '$filename2', '$filename3', '$filename4', '$filename5', '$pucfile', '$insurancefile')";
 
         if ($con->query($sql) === TRUE) {
             echo '<script>alert("new record added successfully")</script>';
@@ -80,7 +81,18 @@
         <input type="text" id="vehicle_name" name="vehicle_name" required>
 
         <label for="vehicle_brand">Vehicle Brand:</label>
-        <input type="text" id="vehicle_brand" name="vehicle_brand" required>
+        <select id="vehicle_brand" name="vehicle_brand" required>
+            <option value="">Select Brand</option>
+            <option value="Maruti Suzuki">Maruti Suzuki</option>
+            <option value="Hero">Hero</option>
+            <option value="Force">Force</option>
+            <option value="Honda">Honda</option>
+            <option value="Nissan">Nissan</option>
+            <option value="Scoda">Scoda</option>
+            <option value="Tata">Tata</option>
+            <option value="Passion">Passion</option>
+            <option value="Pulser">Pulser</option>
+        </select><br>
 
         <label for="vehicle_number_plate">Vehicle Number Plate:</label>
         <input type="text" id="vehicle_number_plate" name="vehicle_number_plate" required>
@@ -91,12 +103,20 @@
         <label for="mileage">Mileage (km/litre):</label>
         <input type="number" id="mileage" name="mileage" required>
 
-        <label for="vehicle_type">Vehicle Type:</label>
+        <label for="vehicle_type">Gear Type:</label>
         <select id="vehicle_type" name="vehicle_type" required>
             <option value="">Select Type</option>
-            <option value="manual">manual</option>
-            <option value="automatic">automatic</option>
-        </select>
+            <option value="Manual">manual</option>
+            <option value="Automatic">automatic</option>
+        </select><br>
+
+        <label for="vehicle_type1">Vehicle Type:</label>
+        <select id="vehicle_type1" name="vehicle_type1" required>
+            <option value="">Select Type</option>
+            <option value="2 wheeler">2 wheeler</option>
+            <option value="4 wheeler">4 wheeler</option>
+            <option value="traveller">traveller</option>
+        </select><br>
 
         <label for="capacity">Capacity (seating):</label>
         <input type="text" id="capacity" name="capacity" required>
@@ -116,11 +136,11 @@
         <label for="fuel_type">Fuel Type:</label>
         <select id="fuel_type" name="fuel_type" required>
             <option value="">Select Fuel Type</option>
-            <option value="petrol">Petrol</option>
-            <option value="diesel">Diesel</option>
-            <option value="cng">CNG</option>
-            <option value="electric">Electric</option>
-        </select>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option>
+            <option value="Electric">Electric</option>
+        </select><br>
 
         <div>
             <label for="image1">Image 1:</label>
@@ -145,17 +165,17 @@
         <div>
             <label for="image5">Image 5:</label>
             <input type="file" id="image5" name="image5">
-        </div>
+        </div><br>
 
         <div>
             <label for="puc">PUC (PDF):</label><br>
             <input type="file" id="puc" name="puc">
-        </div>
+        </div><br>
 
         <div>
             <label for="insurance">Insurance (PDF):</label><br>
             <input type="file" id="insurance" name="insurance">
-        </div>
+        </div><br>
 
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea>
