@@ -160,10 +160,12 @@
 
                     <h2 class="mb-4">Booking Detail</h2>
                     <div class="mb-5">
-                    <div id="locationContainer" style="display: none;">  
+                    <div id="locationContainer" style="display: none;">
+                            
                             <div class="radiobtn form-group">
-                                <input type="radio" id="selfDriveRadioLoc" name="locOption" value="location" required> By Loaction
-                                <input type="radio" id="selfDriveRadioOffice" name="locOption" value="office" style="margin-left: 15px;" required> By Office
+                            Pick Vehicle :
+                                <input type="radio" id="selfDriveRadioLoc" name="locOption" value="location" required> From Loaction
+                                <input type="radio" id="selfDriveRadioOffice" name="locOption" value="office" style="margin-left: 15px;" required> From Office
                             </div>
                     </div>
                             <div class="row">
