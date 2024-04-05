@@ -170,7 +170,7 @@
                     </div>
                             <div class="row">
                                 <div class="col-12 form-group">
-                                <textarea class="form-control p-4" id="picloc" name="loc" placeholder="Pickup Location" required ></textarea>
+                                <textarea class="form-control p-4" id="picloc" name="loc" placeholder="Pickup Location"></textarea>
                                 </div>
                             </div>
                             <div class="row">

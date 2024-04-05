@@ -116,7 +116,7 @@
                         <th>Dropoff time</th>
                         <th>Duration</th>
                         <th>Amount</th>
-                        <th>Delete User</th>
+                        <th>Return Status</th>
                     </tr>
                 </thread>
                 <tbody>
@@ -138,7 +138,11 @@
                     <td><?php echo $res['Dropoff_time'];?></php></td>
                     <td><?php echo $res['Duration'];?></php></td>
                     <td><?php echo $res['amount'];?></php></td>
-                    <td><button type="submit" class="but" name="approve"><a href="admindeleteuser.php?id=<?php echo $res['id']?>">DELETE HISTORY</a></button></td>
+                    <td><span id="return_<?php echo $res['id']; ?>">
+                                    <button type="button" class="but" onclick="toggleReturn('<?php echo $res['id']; ?>')" name="approve">Return</button>
+                                    <span style="display: none;">Returned</span>
+                                </span>
+                            </td>
                 </tr>
                <?php } ?>
                     </table>
@@ -155,6 +159,22 @@
                        subMenu.classList.toggle("open-menu");
                     }
                 </script>
+
+<script>
+        function toggleReturn(id) {
+            var returnButton = document.getElementById('return_' + id);
+            var button = returnButton.querySelector('button');
+            var returnedText = returnButton.querySelector('span');
+
+            if (button.style.display !== 'none') {
+                button.style.display = 'none';
+                returnedText.style.display = 'inline';
+            } else {
+                button.style.display = 'inline';
+                returnedText.style.display = 'none';
+            }
+        }
+    </script>
 
     <?php include("footer.php");?>
 </body>
