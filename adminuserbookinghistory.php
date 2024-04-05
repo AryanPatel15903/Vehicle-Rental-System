@@ -140,10 +140,17 @@
                     <td><?php echo $res['Duration'];?></php></td>
                     <td><?php echo $res['amount'];?></php></td>
                     <td><span id="return_<?php echo $res['id']; ?>">
+                    <?php
+                        if($res['return_status'] == "Returned")
+                        { ?>
+                            <span class="text-secondary">Returned</span>
+                        <?php }
+                        else{
+                    ?>
                     <form action="#" method="get">
-                                    <a class="but" href="drivermail.php?id=<?php echo $res['id']; ?>"  name="submit">Return</a>
+                                    <a class="but" href="drivermail.php?id=<?php echo $res['id']; ?>" name="submit">Return</a>
                                     </form>
-                                    <!-- <span style="display: none;">Returned</span> -->
+                                    <?php } ?>
                                 </span>
                             </td>
                 </tr>
@@ -165,22 +172,6 @@
                        subMenu.classList.toggle("open-menu");
                     }
                 </script>
-
-<!-- <script>
-        function toggleReturn(id) {
-            var returnButton = document.getElementById('return_' + id);
-            var button = returnButton.querySelector('button');
-            var returnedText = returnButton.querySelector('span');
-
-            if (button.style.display !== 'none') {
-                button.style.display = 'none';
-                returnedText.style.display = 'inline';
-            } else {
-                button.style.display = 'inline';
-                returnedText.style.display = 'none';
-            }
-        }
-    </script> -->
 
     <?php include("footer.php");?>
 </body>

@@ -110,7 +110,11 @@
                                     <img class="img-fluid mb-4" src="<?php echo $result1['Profile_img']?>" alt="">
                                     <h4 class="text-uppercase mb-4"><?php echo $result1['First_name'] ." ".$result1['Last_name']?></h4>
                                     <div class="d-flex justify-content-center mb-4">
-                                        
+                                        <div class="px-2">
+                                            <div>-: Rating :-</div> 
+                                            <span class="text-primary"><?php echo $result1['rating'] ?></span>
+                                            <span>/ 5.0</span>
+                                        </div>
                                     </div>
                                     <a class="btn btn-primary px-3 selectbtn" data-driverid="<?php echo $result1['Driver_id']; ?>" data-first-name="<?php echo $result1['First_name']; ?>" data-mobile="<?php echo $result1['Ph_number']; ?>" data-email="<?php echo $result1['Email']; ?>" data-lno="<?php echo $result1['Lisence_no']; ?>" >Select</a>
                                     <input type="hidden" name="selectedDriverId" value="<?php echo $result1['Driver_id']; ?>">
@@ -339,7 +343,6 @@
     
 
     </script>
-
 
   </body>
 

@@ -1,7 +1,5 @@
 <?php
 
-//submit_rating.php
-
 $connect = new PDO("mysql:host=localhost;dbname=vehiclebook", "root", "");
 session_start();
 $driverId=$_SESSION['driver_id'];
@@ -89,6 +87,13 @@ if(isset($_POST["action"]))
 	}
 
 	$average_rating = $total_user_rating / $total_review;
+
+	//Query for add rating in tbldriver table
+	$query1 = "update tbldriver set rating='$average_rating' where driver_id='$driverId'";
+	$statement1 = $connect->prepare($query1);
+	$statement1->execute();
+
+
 	$output = array(
 		'average_rating'	=>	number_format($average_rating, 1),
 		'total_review'		=>	$total_review,
@@ -101,15 +106,6 @@ if(isset($_POST["action"]))
 	);
 
 	echo json_encode($output);
-
-	
-
-	// $query = "update tbldriver set rating='$average_rating' where driver_id='$driverId'";
-
-	// $statement = $connect->prepare($query);
-
-	// $statement->execute($data);
-
 
 }
 

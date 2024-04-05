@@ -1,18 +1,19 @@
 <?php 
     require_once('connection.php');
     $id = $_GET['id'];
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    $sql1="update tblbooking set return_status='Returned' where id='$id'";
+    $returnstat=mysqli_query($con,$sql1);
+
     $sql2="select *from tblbooking where id='$id'";
-    $vehicles= mysqli_query($con,$sql2);
-    $result= mysqli_fetch_array($vehicles);
-    $email=$result['Email'];
-    $driverId=$result['Driver_id'];
-
-                use PHPMailer\PHPMailer\PHPMailer;
-                use PHPMailer\PHPMailer\Exception;
-
-                
-                    // Assuming you have the driver_id available in $driverId variable
-                    
+    $booking= mysqli_query($con,$sql2);
+    $result= mysqli_fetch_array($booking);
+    if($result['Driver'] == 'yes'){
+        $email=$result['Email'];
+        $driverId=$result['Driver_id'];
 
                     require 'phpmailer/src/Exception.php';
                     require 'phpmailer/src/PHPMailer.php';
@@ -38,6 +39,6 @@
                     $mail->Body = $message;
                     $mail->send();
 
+                }
                     header("location: adminuserbookinghistory.php");
-                
-            ?>
+?>
