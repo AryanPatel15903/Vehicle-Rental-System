@@ -100,7 +100,8 @@
             <h1 class="header">BOOKING HISTORY</h1>
             <div>
                 <div>
-                <table class="content-table">
+                    <table class="content-table">
+                    
                 <thread>
                     <tr>
                         <th>ID</th> 
@@ -139,16 +140,21 @@
                     <td><?php echo $res['Duration'];?></php></td>
                     <td><?php echo $res['amount'];?></php></td>
                     <td><span id="return_<?php echo $res['id']; ?>">
-                                    <button type="button" class="but" onclick="toggleReturn('<?php echo $res['id']; ?>')" name="approve">Return</button>
-                                    <span style="display: none;">Returned</span>
+                    <form action="#" method="get">
+                                    <a class="but" href="drivermail.php?id=<?php echo $res['id']; ?>"  name="submit">Return</a>
+                                    </form>
+                                    <!-- <span style="display: none;">Returned</span> -->
                                 </span>
                             </td>
                 </tr>
                <?php } ?>
+            
                     </table>
                     </div>
                 </div>
             </div>
+            
+
 
                
                <script>
@@ -160,7 +166,7 @@
                     }
                 </script>
 
-<script>
+<!-- <script>
         function toggleReturn(id) {
             var returnButton = document.getElementById('return_' + id);
             var button = returnButton.querySelector('button');
@@ -174,7 +180,7 @@
                 returnedText.style.display = 'none';
             }
         }
-    </script>
+    </script> -->
 
     <?php include("footer.php");?>
 </body>
