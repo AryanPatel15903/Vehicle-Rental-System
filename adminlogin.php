@@ -58,11 +58,10 @@ require_once('connection.php');
     <div class="form">
         <h2>Admin Login</h2>
             <form method="POST"> 
-                <input type="text" name="name" placeholder="Enter name Here">
-                <input type="password" name="pass" placeholder="Enter Password Here">
-                <input class="btnn" type="submit" value="Login" name="login"></input>
+                <input type="text" name="name" placeholder="Enter name Here"><br>
+                <input type="password" name="pass" placeholder="Enter Password Here"><br>
+                <input class="btnn" type="submit" value="Login" name="login"></input><br>
             </form>
-                
     </div>
 </div>
     

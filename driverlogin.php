@@ -58,11 +58,12 @@ require_once('connection.php');
     <div class="form">
         <h2>Driver login</h2>
             <form method="POST"> 
-                <input type="email" name="email" placeholder="Enter Email Here">
-                <input type="password" name="pass" placeholder="Enter Password Here">
-                <input class="btnn" type="submit" value="Login" name="login"></input>
+                <input type="email" name="email" placeholder="Enter Email Here"><br>
+                <input type="password" name="pass" placeholder="Enter Password Here"><br>
+                <input class="btnn" type="submit" value="Login" name="login"></input><br>
             </form>
-        <p class="link" style="padding: 5px">Don't have an account?<br>
+            <br>
+        <p class="link" style="padding: 5px">Don't have an account?
         <a href="registerdriver.php">Sign up</a> here</a></p>
                 
     </div>

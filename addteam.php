@@ -38,10 +38,10 @@
     <br><br>
     <!-- form start -->
     <div class="formbody">
-        <div class="register">
+        <div class="register1">
             <h2>Add Team Here</h2>
-            <form action="addteam.php" method="POST" enctype="multipart/form-data">    
             <table>
+            <form action="addteam.php" method="POST" enctype="multipart/form-data">    
                 <tr>
                     <td><label>First Name : </label></td>
                     <td>
@@ -71,8 +71,8 @@
                 </tr>
                 <br>
             </table>
-            <input type="submit" class="btnn"  value="Register" name="addteam" >
-            
+                <input type="submit" class="btnn"  value="Register" name="addteam">
+                
             </form>
         </div>
     </div>

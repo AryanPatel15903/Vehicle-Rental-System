@@ -40,8 +40,9 @@
         </div>
         <!-- Team End -->
 
-        <button onclick="redirectToNextPage()" class="btn btn-secondary py-md-3 px-md-5 mt-2 " style="margin-left: 42%;">Add Team</button>
-
+        <div style="text-align: center;">
+            <button onclick="redirectToNextPage()" class="btn btn-secondary py-md-3 px-md-5 mt-2">Add Team</button>
+        </div>
    
 
     <?php include('footer.php'); ?>

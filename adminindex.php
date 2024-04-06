@@ -24,7 +24,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h1 class="display-1 text-white mb-md-4">Ready to manage your rental operations?</h1>
-                            <h4 class="text-white text-uppercase mb-md-3">Ready to conquer the day? Your car rental empire awaits!</h4>
+                            <h4 class="text-white text-uppercase mb-md-3">Ready to conquer the day? Your Vehicle rental empire awaits!</h4>
             
                         </div>
                     </div>

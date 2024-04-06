@@ -60,17 +60,18 @@ require_once('connection.php');
     <div class="form">
         <h2>Login here</h2>
             <form method="POST"> 
-                <input type="email" name="email" placeholder="Enter Email Here">
-                <input type="password" name="pass" placeholder="Enter Password Here">
-                <input class="btnn" type="submit" value="Login" name="login"></input>
+                <input type="email" name="email" placeholder="Enter Email Here"><br>
+                <input type="password" name="pass" placeholder="Enter Password Here"><br>
+                <input class="btnn" type="submit" value="Login" name="login"></input><br>
             </form>
-        <p class="link" style="padding: 5px">Don't have an account?<br>
-        <a href="registration.php">Sign up</a> here</a></p>
-        <p class="link">Login for Admin Click here<br>
-        <a href="adminlogin.php">Admin login</a></p>
-        <p class="link">Login for Driver Click here<br>
-        <a href="driverlogin.php">Driver login</a></p>
-    </div>
+            <br>
+            <p class="link" style="padding: 5px">Don't have an account?
+            <a href="registration.php">Sign up</a> here</a></p>
+            <p class="link">Login for Admin Click here
+            <a href="adminlogin.php">Admin login</a></p>
+            <p class="link">Login for Driver Click here
+            <a href="driverlogin.php">Driver login</a></p>
+        </div>
 </div>
     
  
