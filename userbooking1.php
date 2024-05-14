@@ -168,7 +168,7 @@
                             
                             <div class="radiobtn form-group">
                             Pick Vehicle :
-                                <input type="radio" id="selfDriveRadioLoc" name="locOption" value="location" required> From Loaction
+                                <input type="radio" id="selfDriveRadioLoc" name="locOption" value="location" required checked> From Loaction
                                 <input type="radio" id="selfDriveRadioOffice" name="locOption" value="office" style="margin-left: 15px;" required> From Office
                             </div>
                     </div>

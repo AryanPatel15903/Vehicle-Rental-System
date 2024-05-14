@@ -107,6 +107,7 @@
                         <th>ID</th> 
                         <th>Driver</th> 
                         <th>Driver id</th>
+                        <th>Booking date</th>
                         <th>Pickup location</th> 
                         <th>Pickup date</th>
                         <th>Dropoff date</th>
@@ -125,6 +126,7 @@
                     <td><?php echo $res['id'];?></php></td>
                     <td><?php echo $res['Driver'];?></php></td>
                     <td><?php echo $res['Driver_id'];?></php></td>
+                    <td><?php echo $res['bookingdate'];?></php></td>
                     <td><?php echo $res['Pickup_loc'];?></php></td>
                     <td><?php echo $res['Pickup_date'];?></php></td>
                     <td><?php echo $res['Dropoff_date'];?></php></td>
