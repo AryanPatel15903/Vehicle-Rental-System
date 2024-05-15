@@ -21,7 +21,7 @@ require_once('connection.php');
                 $db_password = $row['Password'];
                 if(md5($pass)  == $db_password)
                 {
-                    header("location: index.php");
+                    header("location: driverindex.php");
                     session_start();
                     $_SESSION['email'] = $email;
                     

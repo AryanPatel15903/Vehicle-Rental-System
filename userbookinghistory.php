@@ -104,7 +104,7 @@
                 <table class="content-table">
                 <thread>
                     <tr>
-                        <th>ID</th> 
+                        <th>No.</th> 
                         <th>Driver</th> 
                         <th>Driver id</th>
                         <th>Booking date</th>
@@ -120,10 +120,12 @@
                 <tbody>
 
                 <?php
+                $i=1;
+                while($i<=$num){
                     while($res=mysqli_fetch_array($queryy)){
                 ?>
                 <tr  class="active-row">
-                    <td><?php echo $res['id'];?></php></td>
+                    <td><?php echo $i;?></php></td>
                     <td><?php echo $res['Driver'];?></php></td>
                     <td><?php echo $res['Driver_id'];?></php></td>
                     <td><?php echo $res['bookingdate'];?></php></td>
@@ -135,7 +137,8 @@
                     <td><?php echo $res['Duration'];?></php></td>
                     <td><?php echo $res['amount'];?></php></td>
                 </tr>
-               <?php } ?>
+               <?php $i++;
+            }} ?>
                     </table>
                     </div>
                 </div>

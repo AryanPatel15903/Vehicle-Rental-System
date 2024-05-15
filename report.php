@@ -2,33 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Vehicle Rental System</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
     <style>
         .content-table {
             border-collapse: collapse;
@@ -46,7 +19,7 @@
         .content-table thead tr {
             background-color: var(--secondary);
             color: white;
-            text-align: left;
+            text-align: center;
         }
 
         .content-table td {
@@ -111,6 +84,10 @@
 </head>
 
 <body>
+    <?php
+    session_start();
+    include_once('adminheader.php');
+    ?>
     <div>
         <h1 class="header">REPORT</h1>
     </div>
@@ -128,7 +105,7 @@
                 </div>
 
                 <div class="col-xl-2 col-lg-4 col-md-6 px-2">
-                    .
+                    <label> </label>
                     <input class="btn btn-primary btn-block mb-3" type="submit" name="submit" style="height: 50px;"
                         value="Search"></button>
                 </div>
@@ -137,6 +114,7 @@
     </div>
 
     <?php
+    
     require_once ('connection.php');
     if (isset($_POST['submit'])) {
         $fdate = $_POST['fdate'];
@@ -144,10 +122,11 @@
         $sql = "SELECT * FROM tblbooking WHERE bookingdate BETWEEN '$fdate' AND '$tdate'";
         $result = mysqli_query($con, $sql);
         $row = mysqli_num_rows($result);
-        session_start();
+        // session_start();
         $_SESSION['fdate'] = $fdate;
         $_SESSION['tdate'] = $tdate;
 
+        
 
         if ($row > 0) {
             ?>
@@ -180,9 +159,7 @@
                                 while ($res = mysqli_fetch_array($result)) {
                                     ?>
                                     <tr class="active-row">
-                                        <td><?php {
-                                            echo $i;
-                                        } ?></php>
+                                        <td><?php echo $i; ?></php>
                                         </td>
                                         <td><?php echo $res['First_name'] . " " . $res['Last_name']; ?></php>
                                         </td>
@@ -205,7 +182,7 @@
                                     </tr>
                                     <?php
                                     $totalammount += $res['amount'];
-                                    $total=number_format($totalammount, 2);
+                                    $total = number_format($totalammount, 2);
                                     $_SESSION['total'] = $total;
 
                                     $i++;
@@ -222,16 +199,18 @@
                     value="<?php echo $total ?>" readonly> Rs.
             </div>
             <div class="form-group" style="text-align:right; margin-right: 100px; margin-top:10px;">
-                <a href="pdf_generate.php" class="btn btn-success"><i class="fa fa-file"></i> View PDF</a> &nbsp;&nbsp;
+                <a href="pdf_view.php" class="btn btn-success"><i class="fa fa-file"></i> View PDF</a> &nbsp;&nbsp;
             </div>
             <div class="form-group" style="text-align:right; margin-right: 100px; margin-top:10px;">
-                <a href="pdf_maker.php?ACTION=DOWNLOAD" class="btn btn-danger"><i class="fa fa-download"></i> Download PDF</a>
+                <a href="pdf_generate.php" class="btn btn-danger"><i class="fa fa-download"></i> Download PDF</a>
                 &nbsp;&nbsp;
             </div>
 
         <?php }
-    } ?>
-
+    } 
+    
+    include_once('footer.php');
+    ?>
 
 
 </body>

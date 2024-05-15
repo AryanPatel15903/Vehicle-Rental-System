@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php session_start();?>
 <head>
     <meta charset="utf-8">
     <title>Vehicle Rental System</title>
@@ -27,6 +27,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Validation -->
+    <link rel="stylesheet" href="validation/dist/css/bootstrapValidator.css"/>
 </head>
 
 <body>
@@ -63,6 +66,21 @@
     </div>
     <!-- Topbar End -->
 
+    <?php
+        require_once('connection.php');
+        
+
+        if (!isset($_SESSION['email'])) {
+            header("Location: driverlogin.php");
+            exit();
+        }
+
+        $email = $_SESSION['email'];
+        $sql="SELECT * from tbldriver where Email='$email'";
+        $query=mysqli_query($con,$sql);
+        $result=mysqli_fetch_assoc($query);
+    ?>
+
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
@@ -76,25 +94,24 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="adminindex.php" class="nav-item nav-link active">Home</a>
-                        <a href="admindriverlist.php" class="nav-item nav-link">Drivers</a>
+                        <a href="userindex.php" class="nav-item nav-link active">Home</a>
+                        <a href="useraboutus.php" class="nav-item nav-link">About</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Vehicles</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Booking</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="vehiclelisting.php" class="dropdown-item">Vehicle Listing</a>
-                                <a href="vehicledetail.php" class="dropdown-item">Vehicle Detail</a>
-                                <a href="adminuserbookinghistory.php" class="dropdown-item">Booking History</a>
+                                <a href="driver_upcoming.php" class="dropdown-item">Upcoming</a>
+                                <a href="driver_completed.php" class="dropdown-item">Completed</a>
                             </div>
                         </div>
+                        <a href="driver_review.php" class="nav-item nav-link">Reviews</a>
+                        
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="adminteam.php" class="dropdown-item">The Team</a>
-                                <a href="adminfeedbacklist.php" class="dropdown-item">Testimonial</a>
+                                <a href="userteam.php" class="dropdown-item">The Team</a>
+                                <a href="userfeedback.php?User_id=<?php echo $result['Driver_id']; ?>" class="dropdown-item">Testimonial</a>
                             </div>
                         </div>
-
-                        <a href="report.php" class="nav-item nav-link">Report</a>
 
                         <div class="hero">
                         <img src="img/user.png" class="user-pic" alt="" onclick="toggleMenu()">
@@ -103,13 +120,13 @@
                                 <div class="uer-info">
                                     <img src="img/user.png" alt="sdv" >
                                     <h3>
-                                        <p>ADMIN</p>
+                                    <?php echo $result['First_name']." ".$result['Last_name'] ?>
                                     </h3>
                                 </div>
                                 <hr>
                                 <a href="#" class="sub-menu-links">
                                     <img src="img/profile.png" alt="">
-                                    <p>Admin@gmail.com</p>
+                                    <p><?php echo $result['Email'] ?></p>
                                 </a>
                                 <a href="logout.php" class="sub-menu-links">
                                     <img src="img/logout.png" alt="">
@@ -132,15 +149,13 @@
     </div>
     <!-- Navbar End -->
 
-    
     <script>
         let subMenu = document.getElementById("submenu");
-        
+
         function toggleMenu()
         {
             subMenu.classList.toggle("open-menu");
         }
-        </script>
-        
+    </script>
 </body>
 </html>

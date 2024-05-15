@@ -141,5 +141,5 @@ $dompdf = new Dompdf();
 $dompdf->loadHtml($html);
 $dompdf->setPaper('A4', 'landscape');
 $dompdf->render();
-$dompdf->stream('report.pdf');
+$dompdf->stream('report.pdf', ['Attachment' => 0]);
 ?>

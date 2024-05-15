@@ -103,6 +103,7 @@
                 <table class="content-table">
                 <thread>
                     <tr>
+                        <th>NO.</th> 
                         <th>FIRST NAME</th> 
                         <th>LAST NAME</th> 
                         <th>EMAIL</th>
@@ -115,9 +116,12 @@
                 <tbody>
 
                 <?php
+                    $i=1;
+                    while($i<=$num){
                     while($res=mysqli_fetch_array($queryy)){
                 ?>
                 <tr  class="active-row">
+                    <td><?php echo $i;  ?></php></td>
                     <td><?php echo $res['First_name'];?></php></td>
                     <td><?php echo $res['Last_name'];?></php></td>
                     <td><?php echo $res['Email'];?></php></td>
@@ -126,7 +130,8 @@
                     <td><?php echo $res['Lisence_card'];?></php></td>
                     <td><button type="submit" class="but" name="approve"><a href="admindeletedriver.php?id=<?php echo $res['Email']?>">DISAPPROVE</a></button></td>
                 </tr>
-               <?php } ?>
+               <?php $i++;
+            }} ?>
                     </table>
                     </div>
                 </div>

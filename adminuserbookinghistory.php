@@ -104,7 +104,7 @@
                     
                 <thread>
                     <tr>
-                        <th>ID</th> 
+                        <th>NO.</th> 
                         <th>Name</th>
                         <th>Email</th> 
                         <th>Driver</th> 
@@ -124,10 +124,12 @@
                 <tbody>
 
                 <?php
+                $i=1;
+                while($i<=$num){
                     while($res=mysqli_fetch_array($queryy)){
                 ?>
                 <tr  class="active-row">
-                    <td><?php echo $res['id'];?></php></td>
+                    <td><?php echo $i;?></php></td>
                     <td><?php echo $res['First_name']." ".$res['Last_name'];?></php></td>
                     <td><?php echo $res['Email'];?></php></td>
                     <td><?php echo $res['Driver'];?></php></td>
@@ -156,7 +158,8 @@
                                 </span>
                             </td>
                 </tr>
-               <?php } ?>
+               <?php $i++;
+            }} ?>
             
                     </table>
                     </div>
