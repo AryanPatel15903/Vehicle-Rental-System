@@ -98,7 +98,7 @@
     $id=$res1['Driver_id'];
     
 
-    $sql = "SELECT * FROM tblbooking WHERE Pickup_date < NOW() AND Driver_id=$id;";
+    $sql = "SELECT * FROM tblbooking WHERE Dropoff_date < NOW() AND Driver_id=$id;";
     $result = mysqli_query($con, $sql);
     $row = mysqli_num_rows($result);
     if ($row > 0) {

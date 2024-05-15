@@ -105,13 +105,8 @@
                         </div>
                         <a href="driver_review.php" class="nav-item nav-link">Reviews</a>
                         
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="userteam.php" class="dropdown-item">The Team</a>
-                                <a href="userfeedback.php?User_id=<?php echo $result['Driver_id']; ?>" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
+                        <a href="userteam.php" class="dropdown-item">The Team</a>
+                        
 
                         <div class="hero">
                         <img src="img/user.png" class="user-pic" alt="" onclick="toggleMenu()">
