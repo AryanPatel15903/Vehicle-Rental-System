@@ -95,7 +95,7 @@
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="userindex.php" class="nav-item nav-link active">Home</a>
-                        <a href="useraboutus.php" class="nav-item nav-link">About</a>
+                        <a href="driver_aboutus.php" class="nav-item nav-link">About</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Booking</a>
                             <div class="dropdown-menu rounded-0 m-0">
@@ -105,7 +105,7 @@
                         </div>
                         <a href="driver_review.php" class="nav-item nav-link">Reviews</a>
                         
-                        <a href="userteam.php" class="dropdown-item">The Team</a>
+                        <a href="userteam.php" class="nav-item nav-link">Team</a>
                         
 
                         <div class="hero">
