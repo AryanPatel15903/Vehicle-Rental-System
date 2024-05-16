@@ -41,6 +41,8 @@ if(isset($_POST['submit'])) {
         values('$vehicle_id','$fname','$lname','$email','$mno','$address','$driverOption','$did','$loc','$pdate','$ddate','$ptime','$dtime','$duration','$noadults','$nochildren','$srequest', '$amount','$currentDate')";
         $results = mysqli_query($con,$sql1);
         if ($results) {
+
+
             // Get the last inserted ID using mysqli_insert_id
             $last_id = mysqli_insert_id($con);
             $_SESSION['last_id']=$last_id;
