@@ -32,7 +32,7 @@
                         <div class="text-right">
                             <h3 class="text-uppercase text-light mb-3">Want to be driver?</h3>
                             <p class="mb-4">Join our team and hit the road with us!</p>
-                            <a class="btn btn-primary py-2 px-4" href="driverlogin.php">Register Now</a>
+                            <a class="btn btn-primary py-2 px-4" href="registerdriver.php">Register Now</a>
                         </div>
                     </div>
                 </div>
